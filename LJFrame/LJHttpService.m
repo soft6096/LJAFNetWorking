@@ -35,7 +35,7 @@
     _managerBuilder = [[LJHttpRequestBuilder alloc]init];
     [_managerBuilder setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [_managerBuilder setTimeoutInterval:30000];
-    [_managerBuilder setAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+    [_managerBuilder setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
 }
 
 @end

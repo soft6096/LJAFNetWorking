@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LJHttpService.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[[[[[[LJHttpService sharedClient] managerBuilder] createHttpRequest] setUrl:@"https://www.baidu.com"] setSuccess:^(id responseObject){
+        
+        NSLog(@"%@",responseObject);
+        
+    }] setFailure:^(id error){
+        NSLog(@"%@",error);
+    
+    }] execute];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
