@@ -20,6 +20,11 @@
 }
 -(instancetype)initWithBaseURL:(nullable NSURL *)url;
 
+/**
+ *  创建请求
+ *
+ *  @return HttpRequest
+ */
 -(HttpRequest*)createHttpRequest;
 
 -(void)setCachePolicy:(NSURLRequestCachePolicy)cachePolicy;
