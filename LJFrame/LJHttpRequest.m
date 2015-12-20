@@ -2,14 +2,14 @@
 //  BaseRequest.m
 //  base
 //
-//  Created by kakalee on 15/8/15.
+//  Created by 宇宙神帝 on 15/8/15.
 //  Copyright (c) 2015年 kakalee. All rights reserved.
 //
 
-#import "HttpRequest.h"
+#import "LJHttpRequest.h"
 #import "AFURLResponseSerialization.h"
 
-@implementation HttpRequest
+@implementation LJHttpRequest
 
 - (instancetype)init {
     self = [super init];
@@ -19,40 +19,51 @@
     return self;
 }
 
--(HttpRequest*)setManager:(AFHTTPRequestOperationManager *)manager {
+-(LJHttpRequest*)setManager:(AFHTTPRequestOperationManager *)manager {
     _manager = manager;
     return self;
 }
 
--(HttpRequest*)setUrl:(NSString *)url {
+-(LJHttpRequest*)setUrl:(NSString *)url {
     _url = url;
     return self;
 }
 
--(HttpRequest*)addParam:(NSString *)name value:(NSString *)value {
+-(LJHttpRequest*)addParam:(NSString *)name value:(NSString *)value {
     if(_params == nil) {
-        _params = [NSMutableDictionary new];
+        _params = [[NSMutableDictionary alloc]init];
     }
     _params[name] = value;
     return self;
 }
 
--(HttpRequest*)setMethod:(RequestMethod)method {
+-(LJHttpRequest*)addParams:(NSDictionary *)params {
+    if(_params == nil) {
+        _params = [[NSMutableDictionary alloc]initWithDictionary:params];
+    }
+    
+    else {
+        [_params setValuesForKeysWithDictionary:params];
+    }
+    return self;
+}
+
+-(LJHttpRequest*)setMethod:(RequestMethod)method {
     _method = method;
     return self;
 }
 
--(HttpRequest*)setSuccess:(SuccessBlock)success {
+-(LJHttpRequest*)setSuccess:(SuccessBlock)success {
     _success = success;
     return self;
 }
 
--(HttpRequest*)setFailure:(FailureBlock)failure {
+-(LJHttpRequest*)setFailure:(FailureBlock)failure {
     _failure = failure;
     return self;
 }
 
--(HttpRequest*)appendPartWithFileURL:(NSURL *)fileURL name:(NSString *)name {
+-(LJHttpRequest*)appendPartWithFileURL:(NSURL *)fileURL name:(NSString *)name {
     if(_fileParams == nil) {
         _fileParams = [NSMutableDictionary new];
     }
