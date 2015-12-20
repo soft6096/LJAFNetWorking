@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[[[[[[LJHttpService sharedClient] managerBuilder] createHttpRequest] setUrl:@"https://www.baidu.com"] setSuccess:^(id responseObject){
+    [[[[[[[LJHttpService sharedClient] managerBuilder] createHttpRequest] setUrl:@"http://"] setSuccess:^(id responseObject){
         
         NSLog(@"%@",responseObject);
         
