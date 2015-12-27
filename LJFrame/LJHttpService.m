@@ -38,4 +38,14 @@
     [_managerBuilder setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
 }
 
+
+/**
+ *  创建LJHttpRequest 这里的LJHttpRequest实例里已经封装了AFHTTPRequestOperationManager，用于通讯
+ *
+ *  @return LJHttpRequest
+ */
++(LJHttpRequest *)createHttpRequest {
+    return [[[LJHttpService sharedClient] managerBuilder] createHttpRequest];
+}
+
 @end

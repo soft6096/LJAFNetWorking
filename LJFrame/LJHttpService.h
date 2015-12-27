@@ -23,4 +23,11 @@
  */
 + (LJHttpService *)sharedClient;
 
+/**
+ *  创建LJHttpRequest 这里的LJHttpRequest实例里已经封装了AFHTTPRequestOperationManager，用于通讯
+ *
+ *  @return LJHttpRequest
+ */
++(LJHttpRequest *)createHttpRequest;
+
 @end
