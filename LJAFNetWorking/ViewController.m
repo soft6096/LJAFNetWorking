@@ -36,7 +36,7 @@
      *
      *  @return N/A
      */
-    [[[[[[[[[LJHttpService sharedClient] managerBuilder] createHttpRequest] setUrl:@"http://182.92.107.35/api/getWorksList"] addParams:nil] setMethod:RequestMethodGet] setSuccess:^(id responseObject){
+    [[[[[[[[[LJHttpService sharedClient] managerBuilder] createHttpRequest] setUrl:@"http://"] addParams:nil] setMethod:RequestMethodGet] setSuccess:^(id responseObject){
         
         NSLog(@"%@",responseObject);
         
@@ -62,7 +62,7 @@
      *
      *  @return N/A
      */
-    [[[LJHttpService createHttpRequest] setUrl:@"http://182.92.107.35/api/getWorksList" params:nil method:RequestMethodGet success:^(id responseObject){
+    [[[LJHttpService createHttpRequest] setUrl:@"http://" params:nil method:RequestMethodGet success:^(id responseObject){
         
         NSLog(@"%@",responseObject);
         
