@@ -1,4 +1,6 @@
 
+inhibit_all_warnings!
+
 Pod::Spec.new do |s|
 
   s.name         = "LJAFNetWorking"
