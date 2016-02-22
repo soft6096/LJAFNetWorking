@@ -26,14 +26,14 @@
  *
  *  @return N/A
  */
--(instancetype)initWithBaseURL:(nullable NSURL *)url;
+-(nullable instancetype)initWithBaseURL:(nullable NSURL * )url;
 
 /**
  *  创建一个LJHttpRequest请求实例
  *
  *  @return 返回LJHttpRequest请求实例
  */
--(LJHttpRequest*)createHttpRequest;
+-( nullable LJHttpRequest*)createHttpRequest;
 
 /**
  *  设置缓存策略
@@ -47,21 +47,21 @@
  *
  *  @param acceptableContentTypes N/A
  */
--(void)setAcceptableContentTypes:(NSSet *)acceptableContentTypes;
+-(void)setAcceptableContentTypes:( nullable NSSet *)acceptableContentTypes;
 
 /**
  *  设置请求头信息
  *
  *  @param header 请求信息
  */
--(void)setHeader:(NSDictionary *)header;
+-(void)setHeader:(nullable NSDictionary *)header;
 
 /**
  *  设置请求头信息
  *
  *  @param header 请求信息
  */
--(void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString *)field;
+-(void)setValue:(nullable NSString *)value forHTTPHeaderField:(nullable NSString *)field;
 
 /**
  *  设置过期时间
