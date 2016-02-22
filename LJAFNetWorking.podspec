@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.source_files  = "LJFrame","LJFrame/*.{h,m}"
-  s.dependency 'AFNetworking', '<= 2.5.4'
+  s.dependency 'AFNetworking', '<= 2.6.3'
 
 end
