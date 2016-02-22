@@ -9,11 +9,10 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/soft6096/LJAFNetWorking"
 
-  #s.license      = "MIT"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.author       = { "宇宙神帝" => "604323817@qq.com" }
-  s.platform     = :ios, "6.0"
+  s.platform     = :ios, "7.0"
 
   s.source       = { :git => "https://github.com/soft6096/LJAFNetWorking.git",:branch => "master", :tag => "0.0.1" }
 
