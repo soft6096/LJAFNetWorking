@@ -14,8 +14,9 @@
 		E99B92871C25A48F005DC3BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99B92851C25A48F005DC3BC /* Main.storyboard */; };
 		E99B92891C25A48F005DC3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99B92881C25A48F005DC3BC /* Assets.xcassets */; };
 		E99B928C1C25A48F005DC3BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99B928A1C25A48F005DC3BC /* LaunchScreen.storyboard */; };
-		E99B92981C25A6D9005DC3BC /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E99B92951C25A6D9005DC3BC /* HttpRequest.m */; settings = {ASSET_TAGS = (); }; };
-		E99B92991C25A6D9005DC3BC /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E99B92971C25A6D9005DC3BC /* HttpRequestManager.m */; settings = {ASSET_TAGS = (); }; };
+		E9FE0FE31C26A5E0005D1621 /* LJHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FE0FE21C26A5E0005D1621 /* LJHttpService.m */; settings = {ASSET_TAGS = (); }; };
+		E9FE0FEB1C26A6E8005D1621 /* LJHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FE0FE81C26A6E8005D1621 /* LJHttpRequest.m */; settings = {ASSET_TAGS = (); }; };
+		E9FE0FEC1C26A6E8005D1621 /* LJHttpRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FE0FEA1C26A6E8005D1621 /* LJHttpRequestBuilder.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +33,12 @@
 		E99B92881C25A48F005DC3BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E99B928B1C25A48F005DC3BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E99B928D1C25A48F005DC3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E99B92941C25A6D9005DC3BC /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
-		E99B92951C25A6D9005DC3BC /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
-		E99B92961C25A6D9005DC3BC /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
-		E99B92971C25A6D9005DC3BC /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
+		E9FE0FE11C26A5E0005D1621 /* LJHttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHttpService.h; sourceTree = "<group>"; };
+		E9FE0FE21C26A5E0005D1621 /* LJHttpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHttpService.m; sourceTree = "<group>"; };
+		E9FE0FE71C26A6E8005D1621 /* LJHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHttpRequest.h; sourceTree = "<group>"; };
+		E9FE0FE81C26A6E8005D1621 /* LJHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHttpRequest.m; sourceTree = "<group>"; };
+		E9FE0FE91C26A6E8005D1621 /* LJHttpRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHttpRequestBuilder.h; sourceTree = "<group>"; };
+		E9FE0FEA1C26A6E8005D1621 /* LJHttpRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHttpRequestBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +116,12 @@
 		E99B92931C25A6BA005DC3BC /* LJFrame */ = {
 			isa = PBXGroup;
 			children = (
-				E99B92941C25A6D9005DC3BC /* HttpRequest.h */,
-				E99B92951C25A6D9005DC3BC /* HttpRequest.m */,
-				E99B92961C25A6D9005DC3BC /* HttpRequestManager.h */,
-				E99B92971C25A6D9005DC3BC /* HttpRequestManager.m */,
+				E9FE0FE11C26A5E0005D1621 /* LJHttpService.h */,
+				E9FE0FE21C26A5E0005D1621 /* LJHttpService.m */,
+				E9FE0FE71C26A6E8005D1621 /* LJHttpRequest.h */,
+				E9FE0FE81C26A6E8005D1621 /* LJHttpRequest.m */,
+				E9FE0FE91C26A6E8005D1621 /* LJHttpRequestBuilder.h */,
+				E9FE0FEA1C26A6E8005D1621 /* LJHttpRequestBuilder.m */,
 			);
 			path = LJFrame;
 			sourceTree = "<group>";
@@ -242,10 +247,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99B92991C25A6D9005DC3BC /* HttpRequestManager.m in Sources */,
 				E99B92841C25A48F005DC3BC /* ViewController.m in Sources */,
-				E99B92981C25A6D9005DC3BC /* HttpRequest.m in Sources */,
+				E9FE0FEC1C26A6E8005D1621 /* LJHttpRequestBuilder.m in Sources */,
+				E9FE0FE31C26A5E0005D1621 /* LJHttpService.m in Sources */,
 				E99B92811C25A48F005DC3BC /* AppDelegate.m in Sources */,
+				E9FE0FEB1C26A6E8005D1621 /* LJHttpRequest.m in Sources */,
 				E99B927E1C25A48F005DC3BC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
