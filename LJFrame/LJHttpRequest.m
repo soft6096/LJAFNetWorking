@@ -133,11 +133,34 @@
     return self;
 }
 
+/**
+ *  设置上传文件的NSURL和名称
+ *
+ *  @param fileURL
+ *  @param name
+ *
+ *  @return self
+ */
 -(LJHttpRequest*)appendPartWithFileURL:(NSURL *)fileURL name:(NSString *)name {
     if(_fileParams == nil) {
         _fileParams = [NSMutableDictionary new];
     }
     _fileParams[name] = fileURL;
+    return self;
+}
+
+- (LJHttpRequest*)appendPartWithFileData:(NSData *)data
+                                    name:(NSString *)name{
+    
+    if(_fileDataParams == nil) {
+        _fileDataParams = [NSMutableDictionary new];
+    }
+    _fileDataParams[name] = data;
+    return self;
+}
+
+- (LJHttpRequest*)setUploadProgressBlock:(UploadProgressBlock)uploadProgress {
+    _uploadProgress = uploadProgress;
     return self;
 }
 
@@ -194,7 +217,7 @@
     }
     
     else if(_fileParams.count > 0) {
-        [_manager POST:_url parameters:_params constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
+        AFHTTPRequestOperation* operation = [_manager POST:_url parameters:_params constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
             for (NSString *name in _fileParams.keyEnumerator) {
                 [formData appendPartWithFileURL:_fileParams[name] name: name error:nil];
             }
@@ -205,6 +228,38 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error){
             if(_failure) {
                 _failure(error);
+            }
+        }];
+        
+        [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
+                                           long long totalBytesWritten,
+                                           long long totalBytesExpectedToWrite){
+            if(_uploadProgress) {
+                _uploadProgress(totalBytesWritten, totalBytesExpectedToWrite);
+            }
+        }];
+    }
+    
+    else if(_fileDataParams.count > 0) {
+        AFHTTPRequestOperation* operation = [_manager POST:_url parameters:_params constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
+            for (NSString *name in _fileDataParams.keyEnumerator) {
+                [formData appendPartWithFormData:_fileDataParams[name] name:name];
+            }
+        } success:^(AFHTTPRequestOperation *operation, id responseObject){
+            if(_success) {
+                _success(responseObject);
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+            if(_failure) {
+                _failure(error);
+            }
+        }];
+        
+        [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
+                                            long long totalBytesWritten,
+                                            long long totalBytesExpectedToWrite){
+            if(_uploadProgress) {
+                _uploadProgress(totalBytesWritten, totalBytesExpectedToWrite);
             }
         }];
     }

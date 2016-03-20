@@ -28,6 +28,15 @@ typedef void (^SuccessBlock)(id);
  */
 typedef void (^FailureBlock)(NSError *);
 
+/**
+ *  上传文件的进度回调
+ *
+ *  @param totalBytesWritten已经写的字节数
+ *  @param totalBytesExpectedToWrite总字节数
+ *  这个block在主线程中执行(totalBytesWritten/totalBytesExpectedToWrite)计算上传的进度并更新进度条
+ */
+typedef void (^UploadProgressBlock)(long long totalBytesWritten, long long totalBytesExpectedToWrite);
+
 @interface LJHttpRequest : NSObject {
     AFHTTPRequestOperationManager *_manager;
     
@@ -41,7 +50,11 @@ typedef void (^FailureBlock)(NSError *);
     
     FailureBlock _failure;
     
+    UploadProgressBlock _uploadProgress;
+    
     NSMutableDictionary *_fileParams;
+    
+    NSMutableDictionary *_fileDataParams;
 }
 
 /**
@@ -118,7 +131,36 @@ typedef void (^FailureBlock)(NSError *);
  */
 -(LJHttpRequest*)setSuccess:(SuccessBlock)success setFailure:(FailureBlock)failure;
 
+/**
+ *  设置上传文件的NSURL和名称
+ *
+ *  @param fileURL
+ *  @param name
+ *
+ *  @return self
+ */
 -(LJHttpRequest*)appendPartWithFileURL:(NSURL *)fileURL name:(NSString *)name;
+
+
+/**
+ *  设置上传文件的data和名称和文件名称
+ *
+ *  @param data
+ *  @param name
+ *
+ *  @return self
+ */
+- (LJHttpRequest*)appendPartWithFileData:(NSData *)data name:(NSString *)name;
+
+/**
+ *  设置上传进度的block
+ *
+ *  @param fileURL
+ *  @param name
+ *
+ *  @return self
+ */
+- (LJHttpRequest*)setUploadProgressBlock:(UploadProgressBlock)uploadProgress;
 
 /**
  *  设置http请求的如下参数
